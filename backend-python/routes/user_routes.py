@@ -1,0 +1,20 @@
+from fastapi import APIRouter
+from controllers import user_controller as c
+
+router = APIRouter()
+router.add_api_route("/api/register", c.register, methods=["POST"], status_code=201)
+router.add_api_route("/api/login", c.login, methods=["POST"])
+router.add_api_route("/api/users", c.get_users, methods=["GET"])
+router.add_api_route("/api/users/me/blocked", c.blocked_users, methods=["GET"])
+router.add_api_route("/api/users/{uid}/followers", c.followers, methods=["GET"])
+router.add_api_route("/api/users/{uid}/following", c.following, methods=["GET"])
+router.add_api_route("/api/users/{uid}", c.profile, methods=["GET"])
+router.add_api_route("/api/users/{uid}/follow", c.follow, methods=["POST"])
+router.add_api_route("/api/users/{uid}/follow", c.unfollow, methods=["DELETE"])
+router.add_api_route("/api/users/{uid}/block", c.block, methods=["POST"])
+router.add_api_route("/api/users/{uid}/block", c.unblock, methods=["DELETE"])
+router.add_api_route("/api/users/{uid}/follow-requests", c.requests, methods=["GET"])
+router.add_api_route("/api/users/{uid}/follow-requests/{requester}/accept", c.accept_request, methods=["POST"])
+router.add_api_route("/api/users/{uid}/follow-requests/{requester}", c.reject_request, methods=["DELETE"])
+router.add_api_route("/api/users/me/profile", c.update_profile, methods=["PUT"])
+router.add_api_route("/api/users/me/password", c.change_password, methods=["PUT"])
