@@ -11,8 +11,7 @@ __pycache__/
 *.py[cod]
 /backend-python/.env
 /backend-python/.env.save
-
-# Uploaded files
+/backend-python/.env.example
 /uploads/
 /backend/uploads/
 /backend-python/uploads/
